@@ -1,11 +1,10 @@
 /* Global Variables */
-let inquirerData;
-
-
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const fs = require('fs');
+let collectedData;
 
-// TODO: Create a function to write README file
+
+
 function writeToFile() {
     fs.writeFile('README.md',
     `DETAILS TO BE WRITTEN TO FILE`
@@ -17,7 +16,6 @@ function writeToFile() {
 // TODO: Create a function to initialize app
 function init() {
     detailsGathering();
-    // writeToFile();
 }
 
 function detailsGathering(){   
@@ -42,8 +40,9 @@ inquirer
   },
 ])
 .then((response) => {
-    inquirerData = {...response};
-    console.log(inquirerData);
+    collectedData = {...response};
+    console.log(collectedData);
+    writeToFile();
 });
 
 }
