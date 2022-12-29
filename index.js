@@ -84,8 +84,8 @@ function main() {
         },
         {
           type: 'confirm',
-          message: 'Would you like to include a a Contributor Badge?',
-          name: 'contributeBadgeofirm',
+          message: 'Did you create any test cases that can be shared with the reader?',
+          name: 'testCasesConfirm',
         },
       {
         type: 'input',
@@ -100,22 +100,14 @@ function main() {
     ])
     .then((response) => {
       mainData = response;
-      console.log(mainData);
+      descriptionMotivation();
     });
 };
 
-
-
-
-
-
-
-
-
-function userDetailsGatheringPart2() {
+function descriptionMotivation() {
   /*
       Collect Readme Data
-      Description (Some)
+      Description (Motiviation)
   */
   inquirer
     .prompt([
@@ -134,17 +126,17 @@ function userDetailsGatheringPart2() {
       collectedData2 = response;
       if (response.repeat === true) {
         descMotivationArray.push(collectedData2.descMotivation);
-        userDetailsGatheringPart2();
+        descriptionMotivation();
         return;
       }
       descMotivationArray.push(collectedData2.descMotivation);
-      userDetailsGatheringPart3();
+      descriptionLearn();
     });
 }
-function userDetailsGatheringPart3() {
+function descriptionLearn() {
   /*
       Collect Readme Data
-      Description (Some)
+      Description (Learn)
   */
   inquirer
     .prompt([
@@ -163,19 +155,24 @@ function userDetailsGatheringPart3() {
       collectedData3 = response;
       if (response.repeat === true) {
         descLearnArray.push(collectedData3.descLearn);
-        userDetailsGatheringPart3();
+        descriptionLearn();
         return;
       }
       descLearnArray.push(collectedData3.descLearn);
-      userDetailsGatheringPart4();
+      installation();
     });
 }
 
-function userDetailsGatheringPart4() {
+function installation() {
   /*
       Collect Readme Data
       Installation
   */
+if (mainData.installationConfirm === false){
+  console.log("Skipped Install")
+  useageExamples();
+  return;
+}
   inquirer
     .prompt([
       {
@@ -193,15 +190,15 @@ function userDetailsGatheringPart4() {
       collectedData4 = response;
       if (response.repeat === true) {
         installArray.push(collectedData4.install);
-        userDetailsGatheringPart4();
+        installation();
         return;
       }
       installArray.push(collectedData4.install);
-      userDetailsGatheringPart5();
+      useageExamples();
     });
 }
 
-function userDetailsGatheringPart5() {
+function useageExamples() {
   /*
       Collect Readme Data
       Usage (Some)
@@ -210,7 +207,7 @@ function userDetailsGatheringPart5() {
     .prompt([
       {
         type: 'input',
-        message: 'Provide instructions and examples for use.',
+        message: 'Provide a bullet of instructions and examples for how this application is use.',
         name: 'usagage',
       },
       {
@@ -223,15 +220,15 @@ function userDetailsGatheringPart5() {
       collectedData5 = response;
       if (response.repeat === true) {
         usageGeneralArray.push(collectedData5.usagage);
-        userDetailsGatheringPart5();
+        useageExamples();
         return;
       }
       usageGeneralArray.push(collectedData5.usagage);
-      userDetailsGatheringPart6();
+      useageScreenshot();
     });
 }
 
-function userDetailsGatheringPart6() {
+function useageScreenshot() {
   /*
       Collect Readme Data
       Usage (Screenshots)
@@ -258,19 +255,24 @@ function userDetailsGatheringPart6() {
       collectedData6 = response;
       if (response.repeat === true) {
         usageScreenshotArray.push([collectedData6.usagageScreenAlt, collectedData6.usagageScreenPath]);
-        userDetailsGatheringPart6();
+        useageScreenshot();
         return;
       }
       usageScreenshotArray.push([collectedData6.usagageScreenAlt, collectedData6.usagageScreenPath]);
-      userDetailsGatheringPart7();
+      creditsCollaborators();
     });
 }
 
-function userDetailsGatheringPart7() {
+function creditsCollaborators() {
   /*
       Collect Readme Data
       Credits Collaborators
   */
+      if (mainData.collaboratorConfirm === false){
+        console.log("Skipped Collaborator")
+        creditsThirdParty();
+        return;
+      }
   inquirer
     .prompt([
       {
@@ -293,19 +295,24 @@ function userDetailsGatheringPart7() {
       collectedData7 = response;
       if (response.repeat === true) {
         creditsCollaboratorsArray.push([collectedData7.gitHubUserID, collectedData7.gitHubProfileURL]);
-        userDetailsGatheringPart7();
+        creditsCollaborators();
         return;
       }
       creditsCollaboratorsArray.push([collectedData7.gitHubUserID, collectedData7.gitHubProfileURL]);
-      userDetailsGatheringPart8();
+      creditsThirdParty();
     });
 }
 
-function userDetailsGatheringPart8() {
+function creditsThirdParty() {
   /*
       Collect Readme Data
       Credits Third-parties
   */
+      if (mainData.attributionConfirm === false){
+        console.log("Skipped Third Parties")
+        creditsTutorial();
+        return;
+      }
   inquirer
     .prompt([
       {
@@ -328,20 +335,25 @@ function userDetailsGatheringPart8() {
       collectedData8 = response;
       if (response.repeat === true) {
         creditsThridPartyArray.push([collectedData8.thirdPartyName, collectedData8.thirdPartyURL]);
-        userDetailsGatheringPart8();
+        creditsThirdParty();
         return;
       }
       creditsThridPartyArray.push([collectedData8.thirdPartyName, collectedData8.thirdPartyURL]);
-      userDetailsGatheringPart9();
+      creditsTutorial();
     });
 }
 
 
-function userDetailsGatheringPart9() {
+function creditsTutorial() {
   /*
       Collect Readme Data
       Credits - Tutorials
   */
+      if (mainData.tutorialConfirm === false){
+        console.log("Skipped Tutorial")
+        features();
+        return;
+      }
   inquirer
     .prompt([
       {
@@ -364,15 +376,15 @@ function userDetailsGatheringPart9() {
       collectedData9 = response;
       if (response.repeat === true) {
         creditsTutorialArray.push([collectedData9.tutorialName, collectedData9.tutorialURL]);
-        userDetailsGatheringPart9();
+        creditsTutorial();
         return;
       }
       creditsTutorialArray.push([collectedData9.tutorialName, collectedData9.tutorialURL]);
-      userDetailsGatheringPart10();
+      features();
     });
 }
 
-function userDetailsGatheringPart10() {
+function features() {
   /*
       Collect Readme Data
       Features
@@ -394,19 +406,24 @@ function userDetailsGatheringPart10() {
       collectedData10 = response;
       if (response.repeat === true) {
         featuresArray.push(collectedData10.feature);
-        userDetailsGatheringPart10();
+        features();
         return;
       }
       featuresArray.push(collectedData10.feature);
-      userDetailsGatheringPart11();
+      testCases();
     });
 }
 
-function userDetailsGatheringPart11() {
+function testCases() {
   /*
       Collect Readme Data
       Tests 
   */
+      if (mainData.testCasesConfirm === false){
+        console.log("Skipped Test Cases")
+        licenseSection();
+        return;
+      }
   inquirer
     .prompt([
       {
@@ -423,19 +440,24 @@ function userDetailsGatheringPart11() {
     .then((response) => {
       if (response.repeat === true) {
         testArray.push(response.testDetails);
-        userDetailsGatheringPart11();
+        testCases();
         return;
       }
       testArray.push(response.testDetails);
-      userDetailsGatheringPart12();
+      licenseSection();
     });
 }
 
-function userDetailsGatheringPart12() {
+function licenseSection() {
   /*
       Collect Readme Data
       license 
   */
+      if (mainData.licenseConfirm === false){
+        console.log("Skipped License")
+        howToContribute();
+        return;
+      }
   inquirer
     .prompt([
       {
@@ -448,16 +470,34 @@ function userDetailsGatheringPart12() {
     ])
     .then((response) => {
       licenseArray.push(response.license);
-      userDetailsGatheringPart13();
+      howToContribute();
     }
     );
 }
 
-function userDetailsGatheringPart13() {
+function howToContribute() {
   /*
       Collect Readme Data
       How to Contribute 
   */
+      if (mainData.installationConfirm === false){
+        console.log("Skipped Install")
+        // userDetailsGatheringPart5();
+        console.log(mainData);
+        console.log(descMotivationArray);
+        console.log(descLearnArray);
+        console.log(installArray);
+        console.log(usageGeneralArray);
+        console.log(usageScreenshotArray);
+        console.log(creditsCollaboratorsArray);
+        console.log(creditsThridPartyArray);
+        console.log(creditsTutorialArray);
+        console.log(featuresArray);
+        console.log(testArray);
+        console.log(licenseArray);
+        console.log(contributeArray);
+        return;
+      }
   inquirer
     .prompt([
       {
@@ -475,11 +515,11 @@ function userDetailsGatheringPart13() {
       // collectedData13 = response;
       if (response.repeat === true) {
         contributeArray.push(response.contribute);
-        userDetailsGatheringPart13();
+        howToContribute();
         return;
       }
       contributeArray.push(response.contribute);
-      console.log(collectedData1);
+      console.log(mainData);
       console.log(descMotivationArray);
       console.log(descLearnArray);
       console.log(installArray);
