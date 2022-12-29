@@ -4,7 +4,15 @@ let licenseBadge = '';
 let contributorBadge = '';
 let badgeSection = '';
 let tocBadges = '';
-
+let tocInstallation = '';
+let tocCredits = '';
+let tocLicense = '';
+let tocContribute = '';
+let tocTechCases = '';
+let toCDescription = ' - [Description](#description)\n'
+let toCUsage = ' - [Usage](#usage)\n'
+let tocFeatures = ' - [Features](#features)\n'
+let tocQuestions = ' - [Questions](#questions)\n'
 
 function badgeBuilder(mainData, licenseArray) {
   if (mainData.contributeBadgeConfirm === true) {
@@ -37,34 +45,35 @@ function descriptionMotivationBuilder(descMotivationArray, descLearnArray) {
  }
 
  function tableofContentsBuilder(mainData) {
-/* Pending Sections
-DONE - Badges
-DONE - Description
-Installation
-Usage
-Credits
-License
-DONE - Features
-How to Contibute
-Tests
-Questions
-*/
+  if (mainData.tableContents === false) {
+    return;
+  };
 
-if (licenseBadge != '' || contributorBadge  != '' || contributorBadge != ''){
-tocBadges = ' - [Badges](#badges)\n';
-}
+  //If sections are enabled will update the ToC variables.
+   if (licenseBadge != '' || contributorBadge != '' || contributorBadge != '') {
+     tocBadges = ' - [Badges](#badges)\n';
+   };
+   if (mainData.installationConfirm === true) {
+    tocInstallation = ' - [Installation](#installation)\n';
+  };
+  if (mainData.collaboratorConfirm === true || mainData.attributionConfirm === true || mainData.tutorialConfirm === true) {
+    tocCredits = ' - [Credits](#credits)\n';
+  };
+  if (mainData.licenseConfirm === true) {
+    tocLicense = ' - [License](#license)\n';
+  };
+  if (mainData.ContributeCofirm === true) {
+    tocContribute = ' - [How-to-Contribute](#How-to-Contribute)\n';
+  };
+  if (mainData.testCasesConfirm === true) {
+    tocTechCases = ' - [Tests](#tests)\n';
+  };
+
 tocContent = `## Table of Contents
 
-${tocBadges}
-  - [Description](#description)
-
-
-  - [Features](#features)
-
-
+${tocBadges}${toCDescription}${tocInstallation}${toCUsage}${tocCredits}${tocLicense}${tocFeatures}${tocContribute}${tocTechCases}${tocQuestions}
 `
-
- }
+}
  
 
 // TODO: Create a function to generate markdown for README
@@ -83,12 +92,7 @@ Below are short descriptions explaining the what, why, and how of this project.
     - ${mainData.descSolve}
 - What did you learn while working on this?${descLearnBullets}
   
-## Table of Contents
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-- [Features](#features)
-- [futureFeatures](#futureFeatures)
+${tocContent}
 
 ## Usage
 
