@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const { Console } = require('console');
 let mainData = [];
+let masterArray = [];
 let descMotivationArray = [];
 let descLearnArray = [];
 let installArray = [];
@@ -16,9 +17,11 @@ let testArray = [];
 let licenseArray = [];
 let contributeArray = [];
 
+const generateMarkdown = require('./utils/generateMarkdown.js');
+
 function writeToFile() {
   fs.writeFile('README.md',
-    `DETAILS TO BE WRITTEN TO FILE`
+    generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray)
     , (err) =>
       err ? console.error(err) : console.log('README has been created!')
   );
@@ -43,54 +46,54 @@ function main() {
         name: 'email',
       },
       {
-          type: 'confirm',
-          message: 'Would you like to include a table of Contents?',
-          name: 'tableContents',
-        },
-        {
-          type: 'confirm',
-          message: 'Does this project require any installion to work properly?',
-          name: 'installationConfirm',
-        },
-        {
-          type: 'confirm',
-          message: 'Did you collaborate with anyone on this project?',
-          name: 'collaboratorConfirm',
-        },
-        {
-          type: 'confirm',
-          message: 'Did you use any tools or ideas from a thrid party that require attribution?',
-          name: 'attributionConfirm',
-        },
-        {
-          type: 'confirm',
-          message: 'Were any tutorials followed for this project?',
-          name: 'tutorialConfirm',
-        },
-        {
-          type: 'confirm',
-          message: 'Would you like to include a license in the README?',
-          name: 'licenseConfirm',
-        },
-        {
-          type: 'confirm',
-          message: 'Would you like to include a How to Contribute Section?',
-          name: 'ContributeCofirm',
-        },
-        {
-          type: 'confirm',
-          message: 'Would you like to include a a Contributor Badge?',
-          name: 'contributeBadgeofirm',
-        },
-        {
-          type: 'confirm',
-          message: 'Did you create any test cases that can be shared with the reader?',
-          name: 'testCasesConfirm',
-        },
-      {
         type: 'input',
         message: 'What is the Project Name?',
         name: 'projectName',
+      },
+      {
+        type: 'confirm',
+        message: 'Would you like to include a table of Contents?',
+        name: 'tableContents',
+      },
+      {
+        type: 'confirm',
+        message: 'Does this project require any installion to work properly?',
+        name: 'installationConfirm',
+      },
+      {
+        type: 'confirm',
+        message: 'Did you collaborate with anyone on this project?',
+        name: 'collaboratorConfirm',
+      },
+      {
+        type: 'confirm',
+        message: 'Did you use any tools or ideas from a thrid party that require attribution?',
+        name: 'attributionConfirm',
+      },
+      {
+        type: 'confirm',
+        message: 'Were any tutorials followed for this project?',
+        name: 'tutorialConfirm',
+      },
+      {
+        type: 'confirm',
+        message: 'Would you like to include a license in the README?',
+        name: 'licenseConfirm',
+      },
+      {
+        type: 'confirm',
+        message: 'Would you like to include a How to Contribute Section?',
+        name: 'ContributeCofirm',
+      },
+      {
+        type: 'confirm',
+        message: 'Would you like to include a a Contributor Badge?',
+        name: 'contributeBadgeConfirm',
+      },
+      {
+        type: 'confirm',
+        message: 'Did you create any test cases that can be shared with the reader?',
+        name: 'testCasesConfirm',
       },
       {
         type: 'input',
@@ -130,6 +133,9 @@ function descriptionMotivation() {
         return;
       }
       descMotivationArray.push(collectedData2.descMotivation);
+      masterArray.push(descMotivationArray);
+      // console.log(mainData);
+      // console.log(masterArray);
       descriptionLearn();
     });
 }
@@ -159,6 +165,7 @@ function descriptionLearn() {
         return;
       }
       descLearnArray.push(collectedData3.descLearn);
+      masterArray.push(descLearnArray);
       installation();
     });
 }
@@ -168,11 +175,11 @@ function installation() {
       Collect Readme Data
       Installation
   */
-if (mainData.installationConfirm === false){
-  console.log("Skipped Install")
-  useageExamples();
-  return;
-}
+  if (mainData.installationConfirm === false) {
+    console.log("Skipped Install")
+    useageExamples();
+    return;
+  }
   inquirer
     .prompt([
       {
@@ -194,6 +201,7 @@ if (mainData.installationConfirm === false){
         return;
       }
       installArray.push(collectedData4.install);
+      masterArray.push(installArray);
       useageExamples();
     });
 }
@@ -224,6 +232,7 @@ function useageExamples() {
         return;
       }
       usageGeneralArray.push(collectedData5.usagage);
+      masterArray.push(usageGeneralArray);
       useageScreenshot();
     });
 }
@@ -268,11 +277,11 @@ function creditsCollaborators() {
       Collect Readme Data
       Credits Collaborators
   */
-      if (mainData.collaboratorConfirm === false){
-        console.log("Skipped Collaborator")
-        creditsThirdParty();
-        return;
-      }
+  if (mainData.collaboratorConfirm === false) {
+    console.log("Skipped Collaborator")
+    creditsThirdParty();
+    return;
+  }
   inquirer
     .prompt([
       {
@@ -308,11 +317,11 @@ function creditsThirdParty() {
       Collect Readme Data
       Credits Third-parties
   */
-      if (mainData.attributionConfirm === false){
-        console.log("Skipped Third Parties")
-        creditsTutorial();
-        return;
-      }
+  if (mainData.attributionConfirm === false) {
+    console.log("Skipped Third Parties")
+    creditsTutorial();
+    return;
+  }
   inquirer
     .prompt([
       {
@@ -349,11 +358,11 @@ function creditsTutorial() {
       Collect Readme Data
       Credits - Tutorials
   */
-      if (mainData.tutorialConfirm === false){
-        console.log("Skipped Tutorial")
-        features();
-        return;
-      }
+  if (mainData.tutorialConfirm === false) {
+    console.log("Skipped Tutorial")
+    features();
+    return;
+  }
   inquirer
     .prompt([
       {
@@ -419,11 +428,11 @@ function testCases() {
       Collect Readme Data
       Tests 
   */
-      if (mainData.testCasesConfirm === false){
-        console.log("Skipped Test Cases")
-        licenseSection();
-        return;
-      }
+  if (mainData.testCasesConfirm === false) {
+    console.log("Skipped Test Cases")
+    licenseSection();
+    return;
+  }
   inquirer
     .prompt([
       {
@@ -453,11 +462,11 @@ function licenseSection() {
       Collect Readme Data
       license 
   */
-      if (mainData.licenseConfirm === false){
-        console.log("Skipped License")
-        howToContribute();
-        return;
-      }
+  if (mainData.licenseConfirm === false) {
+    console.log("Skipped License")
+    howToContribute();
+    return;
+  }
   inquirer
     .prompt([
       {
@@ -465,11 +474,11 @@ function licenseSection() {
         message: 'Please select a license option from',
         name: 'license',
         default: 0,
-        choices: ["MIT", "Mozilla Public License 2.0", "choice GNU General Public License v3.0"]
+        choices: ["MIT", "Mozilla Public License 2.0", "GNU General Public License v3.0"]
       },
     ])
     .then((response) => {
-      licenseArray.push(response.license);
+      licenseArray = (response.license);
       howToContribute();
     }
     );
@@ -480,24 +489,25 @@ function howToContribute() {
       Collect Readme Data
       How to Contribute 
   */
-      if (mainData.installationConfirm === false){
-        console.log("Skipped Install")
-        // userDetailsGatheringPart5();
-        console.log(mainData);
-        console.log(descMotivationArray);
-        console.log(descLearnArray);
-        console.log(installArray);
-        console.log(usageGeneralArray);
-        console.log(usageScreenshotArray);
-        console.log(creditsCollaboratorsArray);
-        console.log(creditsThridPartyArray);
-        console.log(creditsTutorialArray);
-        console.log(featuresArray);
-        console.log(testArray);
-        console.log(licenseArray);
-        console.log(contributeArray);
-        return;
-      }
+  if (mainData.installationConfirm === false) {
+    console.log("Skipped Install")
+    // userDetailsGatheringPart5();
+    console.log(mainData);
+    console.log(descMotivationArray);
+    console.log(descLearnArray);
+    console.log(installArray);
+    console.log(usageGeneralArray);
+    console.log(usageScreenshotArray);
+    console.log(creditsCollaboratorsArray);
+    console.log(creditsThridPartyArray);
+    console.log(creditsTutorialArray);
+    console.log(featuresArray);
+    console.log(testArray);
+    console.log(licenseArray);
+    console.log(contributeArray);
+    writeToFile();
+    return;
+  }
   inquirer
     .prompt([
       {
@@ -532,6 +542,7 @@ function howToContribute() {
       console.log(testArray);
       console.log(licenseArray);
       console.log(contributeArray);
+      writeToFile();
     });
 }
 
