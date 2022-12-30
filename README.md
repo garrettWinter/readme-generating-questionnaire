@@ -1,21 +1,32 @@
-# project name
+# README Generator
+
+## Badges
+
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4b.svg)](code_of_conduct.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
 Below are short descriptions explaining the what, why, and how of this project.
 
 - What was your motivation?
-    - n
+    - motivation1
+    - motivation2
+
 - What problem does this application solve?
-    - n
+    - solves
+
 - What did you learn while working on this?
-    - n
+    - learn1
+    - learn2
   
 ## Table of Contents
 
+ - [Badges](#badges)
  - [Description](#description)
  - [Installation](#installation)
  - [Usage](#usage)
+ - [License](#license)
  - [Features](#features)
  - [Questions](#questions)
 
@@ -23,20 +34,18 @@ Below are short descriptions explaining the what, why, and how of this project.
   
   Here is some information that you will need to be able to install and properly work this application:
   
-    - n
+    - install
   
-
 ## Usage
-
-- This is a weather dashboard that allows the user to be able to search for a city. This will make an API call and will return 6 days of weather (the current day and the 5 days after). Searched cities and logged for easy repeat access.
-
-    - This webpage can be viewed by following the below link:
-        - https://garrettwinter.github.io/winters-weather-dashboard/
-        
-    - Below a screenshot of the webpage
-        - ![Screenshot of Garrett Winter's, Winter's Weather Dashboard](./assets/images/Dashboard-Screenshot.png)
-
-
+  
+  Here are some details on how this application can be used:
+    - used
+    - used2
+      
+  - Below a screenshot(s) of the application:
+  - ![alt1](URL1)
+  - ![alt2](URL2)
+  
 ## Credits
 
   - While working on this project I had collaborated in real-time with:

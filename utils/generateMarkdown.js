@@ -1,6 +1,8 @@
 let descMotivationBullets = '';
 let descLearnBullets = '';
 let installationBullets = '';
+let usageGeneralBullets = '';
+let usageScreenshotBullets = '';
 
 
 let licenseBadge = '';
@@ -95,12 +97,31 @@ function installationBuilder(mainData,installArray) {
   `
 }
 
+function usageBuilder(usageGeneralArray, usageScreenshotArray) {
+  for (let i = 0; i < usageGeneralArray.length; i++) {
+    usageGeneralBullets = usageGeneralBullets.concat("\n    - " + usageGeneralArray[i]);
+  };
+  for (let i = 0; i < usageScreenshotArray.length; i++) {
+    usageScreenshotBullets = usageScreenshotBullets.concat("\n  - ![" + usageScreenshotArray[i][0]+ "]("+ usageScreenshotArray[i][1]+")");
+  };
+
+  useageContent = `\n## Usage
+  
+  Here are some details on how this application can be used:${usageGeneralBullets}
+      
+  - Below a screenshot(s) of the application:${usageScreenshotBullets}
+  `
+}
+
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray,installArray) {
+function generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray,installArray,usageScreenshotArray,usageGeneralArray) {
   badgeBuilder(mainData, licenseArray);
   descriptionMotivationBuilder(descMotivationArray, descLearnArray);
   tableofContentsBuilder (mainData);
   installationBuilder(mainData,installArray);
+  usageBuilder(usageGeneralArray,usageScreenshotArray);
+
+
   return `# ${mainData.projectName}${badgeSection}
 
 ## Description
@@ -108,22 +129,13 @@ function generateMarkdown(mainData, descMotivationArray, descLearnArray, license
 Below are short descriptions explaining the what, why, and how of this project.
 
 - What was your motivation?${descMotivationBullets}
+
 - What problem does this application solve?
     - ${mainData.descSolve}
+
 - What did you learn while working on this?${descLearnBullets}
   
-${tocContent}${installationContent}
-## Usage
-
-- This is a weather dashboard that allows the user to be able to search for a city. This will make an API call and will return 6 days of weather (the current day and the 5 days after). Searched cities and logged for easy repeat access.
-
-    - This webpage can be viewed by following the below link:
-        - https://garrettwinter.github.io/winters-weather-dashboard/
-        
-    - Below a screenshot of the webpage
-        - ![Screenshot of Garrett Winter's, Winter's Weather Dashboard](./assets/images/Dashboard-Screenshot.png)
-
-
+${tocContent}${installationContent}${useageContent}
 ## Credits
 
   - While working on this project I had collaborated in real-time with:

@@ -21,7 +21,7 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 
 function writeToFile() {
   fs.writeFile('README.md',
-    generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray, installArray)
+    generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray,installArray,usageScreenshotArray,usageGeneralArray)
     , (err) =>
       err ? console.error(err) : console.log('README has been created!')
   );
