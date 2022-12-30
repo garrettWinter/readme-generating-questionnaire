@@ -3,6 +3,9 @@ let descLearnBullets = '';
 let installationBullets = '';
 let usageGeneralBullets = '';
 let usageScreenshotBullets = '';
+let creditsCollaboratorsBullets = '';
+let creditsThridPartyBullets = '';
+let creditsTutorialBullets = '';
 
 
 let licenseBadge = '';
@@ -14,6 +17,7 @@ let tocCredits = '';
 let tocLicense = '';
 let tocContribute = '';
 let tocTechCases = '';
+let tocContent = '';
 let toCDescription = ' - [Description](#description)\n'
 let toCUsage = ' - [Usage](#usage)\n'
 let tocFeatures = ' - [Features](#features)\n'
@@ -113,13 +117,47 @@ function usageBuilder(usageGeneralArray, usageScreenshotArray) {
   `
 }
 
+function creditsBuilder(mainData, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray) {
+  if (mainData.collaboratorConfirm === false && mainData.attributionConfirm === false && mainData.tutorialConfirm === false) {
+    return;
+  };
+  if (mainData.collaboratorConfirm === true) {
+    for (let i = 0; i < creditsCollaboratorsArray.length; i++) {
+      creditsCollaboratorsBullets = creditsCollaboratorsBullets.concat("\n    - " + creditsCollaboratorsArray[i][0] + " (" + creditsCollaboratorsArray[i][1] + ")");
+    };
+  };
+  if (mainData.attributionConfirm === true) {
+    for (let i = 0; i < creditsThridPartyArray.length; i++) {
+      creditsThridPartyBullets = creditsThridPartyBullets.concat("\n    - " + creditsThridPartyArray[i][0] + " (" + creditsThridPartyArray[i][1] + ")");
+    };
+  };
+  if (mainData.tutorialConfirm === true) {
+    for (let i = 0; i < creditsTutorialArray.length; i++) {
+      creditsTutorialBullets = creditsTutorialBullets.concat("\n    - " + creditsTutorialArray[i][0] + " (" + creditsTutorialArray[i][1] + ")");
+    };
+  };
+
+  collaborationContent = `\n\nThe following poeople have worked together to develop this application:${creditsCollaboratorsBullets}`
+  creditsThridPartyContent = `\n\nThis application used the following Third-Party technologies:${creditsThridPartyBullets}`
+  tutorialContent = `\n\nThe following tutorial was followed in the development of this application:${creditsTutorialBullets}`
+
+  creditsContent = `\n## Credits${collaborationContent}${creditsThridPartyContent}${tutorialContent}
+  `
+
+}
+//////////
+//////////
+
+
+
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray,installArray,usageScreenshotArray,usageGeneralArray) {
+function generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray,installArray,usageScreenshotArray,usageGeneralArray, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray) {
   badgeBuilder(mainData, licenseArray);
   descriptionMotivationBuilder(descMotivationArray, descLearnArray);
   tableofContentsBuilder (mainData);
   installationBuilder(mainData,installArray);
   usageBuilder(usageGeneralArray,usageScreenshotArray);
+  creditsBuilder(mainData, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray)
 
 
   return `# ${mainData.projectName}${badgeSection}
@@ -135,13 +173,7 @@ Below are short descriptions explaining the what, why, and how of this project.
 
 - What did you learn while working on this?${descLearnBullets}
   
-${tocContent}${installationContent}${useageContent}
-## Credits
-
-  - While working on this project I had collaborated in real-time with:
-    - Garrett Winter (https://github.com/garrettWinter)
-    - Salahuddin Imdad (https://github.com/Sal8298)
-
+${tocContent}${installationContent}${useageContent}${creditsContent}
 ## License
 
 MIT License

@@ -1,4 +1,4 @@
-# README Generator
+# project name
 
 ## Badges
 
@@ -10,15 +10,13 @@
 Below are short descriptions explaining the what, why, and how of this project.
 
 - What was your motivation?
-    - motivation1
-    - motivation2
+    - n
 
 - What problem does this application solve?
-    - solves
+    - y
 
 - What did you learn while working on this?
-    - learn1
-    - learn2
+    - n
   
 ## Table of Contents
 
@@ -26,32 +24,39 @@ Below are short descriptions explaining the what, why, and how of this project.
  - [Description](#description)
  - [Installation](#installation)
  - [Usage](#usage)
+ - [Credits](#credits)
  - [License](#license)
  - [Features](#features)
+ - [How-to-Contribute](#How-to-Contribute)
+ - [Tests](#tests)
  - [Questions](#questions)
 
 ## Installation
   
   Here is some information that you will need to be able to install and properly work this application:
   
-    - install
+    - n
   
 ## Usage
   
   Here are some details on how this application can be used:
-    - used
-    - used2
+    - n
       
   - Below a screenshot(s) of the application:
-  - ![alt1](URL1)
-  - ![alt2](URL2)
+  - ![n](n)
   
 ## Credits
 
-  - While working on this project I had collaborated in real-time with:
-    - Garrett Winter (https://github.com/garrettWinter)
-    - Salahuddin Imdad (https://github.com/Sal8298)
+The following poeople have worked together to develop this application:
+    - me (URL)
+    - sal (URL)
 
+This application used the following Third-Party technologies:
+    - third (n)
+
+The following tutorial was followed in the development of this application:
+    - tutor (url)
+  
 ## License
 
 MIT License
