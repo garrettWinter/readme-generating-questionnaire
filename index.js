@@ -7,7 +7,7 @@ let masterArray = [];
 let descMotivationArray = [];
 let descLearnArray = [];
 let installArray = [];
-let usageGeneralArray = [];
+let usageGeneralArray = []; //WHAT IS THIS?
 let usageScreenshotArray = [];
 let creditsCollaboratorsArray = [];
 let creditsThridPartyArray = [];
@@ -21,7 +21,7 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 
 function writeToFile() {
   fs.writeFile('README.md',
-    generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray)
+    generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray, installArray)
     , (err) =>
       err ? console.error(err) : console.log('README has been created!')
   );
@@ -215,7 +215,7 @@ function useageExamples() {
     .prompt([
       {
         type: 'input',
-        message: 'Provide a bullet of instructions and examples for how this application is use.',
+        message: 'Provide a bullet of instructions and examples for how this application is used.',
         name: 'usagage',
       },
       {

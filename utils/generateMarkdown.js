@@ -1,5 +1,8 @@
 let descMotivationBullets = '';
 let descLearnBullets = '';
+let installationBullets = '';
+
+
 let licenseBadge = '';
 let contributorBadge = '';
 let badgeSection = '';
@@ -74,13 +77,30 @@ tocContent = `## Table of Contents
 ${tocBadges}${toCDescription}${tocInstallation}${toCUsage}${tocCredits}${tocLicense}${tocFeatures}${tocContribute}${tocTechCases}${tocQuestions}
 `
 }
- 
+
+function installationBuilder(mainData,installArray) {
+  if (mainData.installationConfirm === false) {
+    return;
+  };
+
+  for (let i = 0; i < installArray.length; i++) {
+    installationBullets = installationBullets.concat("\n    - " + installArray[i]);
+  };
+
+
+  installationContent = `## Installation
+  
+  Here is some information that you will need to be able to install and properly work this application:
+  ${installationBullets}
+  `
+}
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray) {
+function generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray,installArray) {
   badgeBuilder(mainData, licenseArray);
   descriptionMotivationBuilder(descMotivationArray, descLearnArray);
   tableofContentsBuilder (mainData);
+  installationBuilder(mainData,installArray);
   return `# ${mainData.projectName}${badgeSection}
 
 ## Description
@@ -92,8 +112,7 @@ Below are short descriptions explaining the what, why, and how of this project.
     - ${mainData.descSolve}
 - What did you learn while working on this?${descLearnBullets}
   
-${tocContent}
-
+${tocContent}${installationContent}
 ## Usage
 
 - This is a weather dashboard that allows the user to be able to search for a city. This will make an API call and will return 6 days of weather (the current day and the 5 days after). Searched cities and logged for easy repeat access.
