@@ -6,6 +6,9 @@ let usageScreenshotBullets = '';
 let creditsCollaboratorsBullets = '';
 let creditsThridPartyBullets = '';
 let creditsTutorialBullets = '';
+let licenseText = '';
+let installationContent = '';
+let creditsContent = '';
 
 
 let licenseBadge = '';
@@ -113,7 +116,7 @@ function usageBuilder(usageGeneralArray, usageScreenshotArray) {
   
   Here are some details on how this application can be used:${usageGeneralBullets}
       
-  - Below a screenshot(s) of the application:${usageScreenshotBullets}
+  Below a screenshot(s) of the application:${usageScreenshotBullets}
   `
 }
 
@@ -146,9 +149,37 @@ function creditsBuilder(mainData, creditsCollaboratorsArray, creditsThridPartyAr
 
 }
 //////////
+
+function licenseBuilder(mainData, licenseArray) {
+  if (mainData.licenseConfirm === false) {
+    return;
+  };
+  
+    if (licenseArray === 'MIT') {
+      licenseText = '\n## License\n\nThe MIT license is being used for this applcation. For more information you can go to the following URL.\n    - https://opensource.org/licenses/MIT';
+    };
+
+    if (licenseArray === 'Mozilla Public License 2.0') {
+      licenseText = '\n## License\n\nThe Mozilla Public License 2.0 license is being used for this applcation. For more information you can go to the following URL.\n    - https://opensource.org/licenses/MPL-2.0';
+    };
+    
+    if (licenseArray === 'GNU General Public License v3.0') {
+      licenseText = '\n## License\n\nThe GNU General Public License v3.0 license is being used for this applcation. For more information you can go to the following URL.\n    - https://www.gnu.org/licenses/gpl-3.0';
+    };
+  };
+
+
+
+
 //////////
 
-
+/* REMAINING SECTIONS
+}${tocLicense
+}${tocFeatures
+}${tocContribute
+}${tocTechCases}
+${tocQuestions}
+*/
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray,installArray,usageScreenshotArray,usageGeneralArray, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray) {
@@ -157,7 +188,8 @@ function generateMarkdown(mainData, descMotivationArray, descLearnArray, license
   tableofContentsBuilder (mainData);
   installationBuilder(mainData,installArray);
   usageBuilder(usageGeneralArray,usageScreenshotArray);
-  creditsBuilder(mainData, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray)
+  creditsBuilder(mainData, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray);
+  licenseBuilder(mainData, licenseArray);
 
 
   return `# ${mainData.projectName}${badgeSection}
@@ -173,51 +205,11 @@ Below are short descriptions explaining the what, why, and how of this project.
 
 - What did you learn while working on this?${descLearnBullets}
   
-${tocContent}${installationContent}${useageContent}${creditsContent}
-## License
-
-MIT License
-
-Copyright (c) 2022 Garrett Winter
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+${tocContent}${installationContent}${useageContent}${creditsContent}${licenseText}
 
 ## Features
 
 Some of the main features for this weather dashboard are:
-
-3rd Party API:
-    - This site uses OpenWeather API to gather the weather forecast data.
-        - https://openweathermap.org/
-
-Search History:
-    - Is saved into local storage, so can be reviewed easily anytime.
-    - A clear history button has been added for the ease to clear saved data.
-    - Search history buttons are added and removed dynamically.
-
-Current & 5 Day Forecast:
-    - 5 Day forecast is being dynamically created
-    - Weather icons are being pulled and displayed to
-        - Examples are: Sunny, cloudy, raining.
-
-Responsive Design:
-    - This site has been built to support down to mobile devices.
 
 `;
 }
