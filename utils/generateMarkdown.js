@@ -6,9 +6,14 @@ let usageScreenshotBullets = '';
 let creditsCollaboratorsBullets = '';
 let creditsThridPartyBullets = '';
 let creditsTutorialBullets = '';
+let featureBullets = '';
 let licenseText = '';
 let installationContent = '';
 let creditsContent = '';
+let contributeContent = '';
+let contributeBullets = '';
+let testBullets = '';
+let testContent = '';
 
 
 let licenseBadge = '';
@@ -19,7 +24,7 @@ let tocInstallation = '';
 let tocCredits = '';
 let tocLicense = '';
 let tocContribute = '';
-let tocTechCases = '';
+let tocTestCases = '';
 let tocContent = '';
 let toCDescription = ' - [Description](#description)\n'
 let toCUsage = ' - [Usage](#usage)\n'
@@ -54,7 +59,7 @@ function descriptionMotivationBuilder(descMotivationArray, descLearnArray) {
     descLearnBullets = descLearnBullets.concat("\n    - " + descLearnArray[i]);
   };
   return descLearnBullets;
- }
+ };
 
  function tableofContentsBuilder(mainData) {
   if (mainData.tableContents === false) {
@@ -78,14 +83,14 @@ function descriptionMotivationBuilder(descMotivationArray, descLearnArray) {
     tocContribute = ' - [How-to-Contribute](#How-to-Contribute)\n';
   };
   if (mainData.testCasesConfirm === true) {
-    tocTechCases = ' - [Tests](#tests)\n';
+    tocTestCases = ' - [Tests](#tests)\n';
   };
 
 tocContent = `## Table of Contents
 
-${tocBadges}${toCDescription}${tocInstallation}${toCUsage}${tocCredits}${tocLicense}${tocFeatures}${tocContribute}${tocTechCases}${tocQuestions}
+${tocBadges}${toCDescription}${tocInstallation}${toCUsage}${tocCredits}${tocLicense}${tocFeatures}${tocContribute}${tocTestCases}${tocQuestions}
 `
-}
+};
 
 function installationBuilder(mainData,installArray) {
   if (mainData.installationConfirm === false) {
@@ -99,10 +104,9 @@ function installationBuilder(mainData,installArray) {
 
   installationContent = `## Installation
   
-  Here is some information that you will need to be able to install and properly work this application:
-  ${installationBullets}
-  `
-}
+Here is some information that you will need to be able to install and properly work this application:${installationBullets}
+`
+};
 
 function usageBuilder(usageGeneralArray, usageScreenshotArray) {
   for (let i = 0; i < usageGeneralArray.length; i++) {
@@ -114,11 +118,11 @@ function usageBuilder(usageGeneralArray, usageScreenshotArray) {
 
   useageContent = `\n## Usage
   
-  Here are some details on how this application can be used:${usageGeneralBullets}
+Here are some details on how this application can be used:${usageGeneralBullets}
       
-  Below a screenshot(s) of the application:${usageScreenshotBullets}
-  `
-}
+Below a screenshot(s) of the application:${usageScreenshotBullets}
+`
+};
 
 function creditsBuilder(mainData, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray) {
   if (mainData.collaboratorConfirm === false && mainData.attributionConfirm === false && mainData.tutorialConfirm === false) {
@@ -147,8 +151,7 @@ function creditsBuilder(mainData, creditsCollaboratorsArray, creditsThridPartyAr
   creditsContent = `\n## Credits${collaborationContent}${creditsThridPartyContent}${tutorialContent}
   `
 
-}
-//////////
+};
 
 function licenseBuilder(mainData, licenseArray) {
   if (mainData.licenseConfirm === false) {
@@ -168,21 +171,49 @@ function licenseBuilder(mainData, licenseArray) {
     };
   };
 
+  function featureBuilder(featuresArray) {
+    for (let i = 0; i < featuresArray.length; i++) {
+    featureBullets = featureBullets.concat("\n    - " + featuresArray[i]);
+  };
+};
 
+function contributeBuilder(mainData, contributeArray) {
+  if (mainData.ContributeCofirm === false) {
+    return;
+  };
 
+  for (let i = 0; i < contributeArray.length; i++) {
+    contributeBullets = contributeBullets.concat("\n    - " + contributeArray[i]);
+  };
+
+  contributeContent = `\n\n## How to Contribute
+  \nHere are some details on how to contribute to this application:${contributeBullets}`
+};
+
+//////////
+
+function testBuilder(mainData, testArray) {
+  if (mainData.ContributeCofirm === false) {
+    return;
+  };
+
+  for (let i = 0; i < testArray.length; i++) {
+    testBullets = testBullets.concat("\n    - " + testArray[i]);
+  };
+
+  testContent = `\n\n## Tests
+  \nTest have been written for this application to aid in the develpment process. Below is some details on how to use these test cases:${testBullets}`
+};
 
 //////////
 
 /* REMAINING SECTIONS
-}${tocLicense
-}${tocFeatures
-}${tocContribute
-}${tocTechCases}
+${tocTestCases}
 ${tocQuestions}
 */
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray,installArray,usageScreenshotArray,usageGeneralArray, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray) {
+function generateMarkdown(mainData, descMotivationArray, descLearnArray, licenseArray,installArray,usageScreenshotArray,usageGeneralArray, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray, featuresArray, contributeArray, testArray) {
   badgeBuilder(mainData, licenseArray);
   descriptionMotivationBuilder(descMotivationArray, descLearnArray);
   tableofContentsBuilder (mainData);
@@ -190,7 +221,9 @@ function generateMarkdown(mainData, descMotivationArray, descLearnArray, license
   usageBuilder(usageGeneralArray,usageScreenshotArray);
   creditsBuilder(mainData, creditsCollaboratorsArray, creditsThridPartyArray, creditsTutorialArray);
   licenseBuilder(mainData, licenseArray);
-
+  featureBuilder(featuresArray);
+  contributeBuilder(mainData, contributeArray);
+  testBuilder(mainData, testArray);
 
   return `# ${mainData.projectName}${badgeSection}
 
@@ -208,9 +241,12 @@ Below are short descriptions explaining the what, why, and how of this project.
 ${tocContent}${installationContent}${useageContent}${creditsContent}${licenseText}
 
 ## Features
+\nSome of the main features of this application are:${featureBullets}${contributeContent}${testContent}
 
-Some of the main features for this weather dashboard are:
+## Questions
 
+If you have questions and would like to discuss you can reach out to:
+  - ${mainData.gitHub} ${mainData.email}
 `;
 }
 
