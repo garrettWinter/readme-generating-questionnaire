@@ -1,4 +1,4 @@
-# Professional README Generator
+# README Generating Questionnair
 
 ## Badges
 
@@ -46,19 +46,19 @@ Here are some details on how this application can be used:
     - Once running, follow the prompt to have it generate your professional grade README file.
       
 Below a screenshot(s) of the application:
-  - ![NEED]()
-  - ![NEED2]()
+  - ![Screenshot of Completed Questionnair in NODE](./assets/media/images/NODE-Completed-Questionnair.png)
+  - ![Screenshot of the README.md file](./assets/media/images/README-Sample.png)
 
 ## Credits
 
 The following people have worked together to develop this application:
-    - Myself (URL)
+    - Garrett Winter (https://github.com/garrettWinter)
 
 This application used the following Third-Party technologies:
-    - No tutorial followed but wanted to show functionality. (NONE)
+    - No third parties followed but wanted to show functionality. (None Used)
 
 The following tutorial was followed in the development of this application:
-    - No tutorial followed, showcasing functionality. (NONE)
+    - No tutorial followed, showcasing functionality. (None Followed)
   
 ## License
 
