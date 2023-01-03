@@ -7,7 +7,7 @@ let masterArray = [];
 let descMotivationArray = [];
 let descLearnArray = [];
 let installArray = [];
-let usageGeneralArray = []; //WHAT IS THIS?
+let usageGeneralArray = []; 
 let usageScreenshotArray = [];
 let creditsCollaboratorsArray = [];
 let creditsThridPartyArray = [];
@@ -25,11 +25,6 @@ function writeToFile() {
     , (err) =>
       err ? console.error(err) : console.log('README has been created!')
   );
-}
-
-// TODO: Create a function to initialize app
-function init() {
-  main();
 }
 
 function main() {
@@ -107,11 +102,8 @@ function main() {
     });
 };
 
+  /* Collect Readme Data --- Description (Motiviation) */
 function descriptionMotivation() {
-  /*
-      Collect Readme Data
-      Description (Motiviation)
-  */
   inquirer
     .prompt([
       {
@@ -134,16 +126,12 @@ function descriptionMotivation() {
       }
       descMotivationArray.push(collectedData2.descMotivation);
       masterArray.push(descMotivationArray);
-      // console.log(mainData);
-      // console.log(masterArray);
       descriptionLearn();
     });
 }
+
+  /* Collect Readme Data --- Description (Learn) */
 function descriptionLearn() {
-  /*
-      Collect Readme Data
-      Description (Learn)
-  */
   inquirer
     .prompt([
       {
@@ -170,13 +158,10 @@ function descriptionLearn() {
     });
 }
 
+  /* Collect Readme Data --- Installation */
 function installation() {
-  /*
-      Collect Readme Data
-      Installation
-  */
   if (mainData.installationConfirm === false) {
-    console.log("Skipped Install")
+    console.log("Installation Section has been skipped.")
     useageExamples();
     return;
   }
@@ -206,11 +191,8 @@ function installation() {
     });
 }
 
+  /* Collect Readme Data --- Usage (How to) */
 function useageExamples() {
-  /*
-      Collect Readme Data
-      Usage (Some)
-  */
   inquirer
     .prompt([
       {
@@ -237,11 +219,9 @@ function useageExamples() {
     });
 }
 
-function useageScreenshot() {
-  /*
-      Collect Readme Data
-      Usage (Screenshots)
+  /* Collect Readme Data --- Usage (Screenshots)
   */
+function useageScreenshot() {
   inquirer
     .prompt([
       {
@@ -272,13 +252,10 @@ function useageScreenshot() {
     });
 }
 
+  /* Collect Readme Data --- Credits Collaborators */
 function creditsCollaborators() {
-  /*
-      Collect Readme Data
-      Credits Collaborators
-  */
   if (mainData.collaboratorConfirm === false) {
-    console.log("Skipped Collaborator")
+    console.log("Credits - Collaboration Section has been skipped.")
     creditsThirdParty();
     return;
   }
@@ -312,13 +289,10 @@ function creditsCollaborators() {
     });
 }
 
+  /* Collect Readme Data --- Credits Third-parties */
 function creditsThirdParty() {
-  /*
-      Collect Readme Data
-      Credits Third-parties
-  */
   if (mainData.attributionConfirm === false) {
-    console.log("Skipped Third Parties")
+    console.log("Credits - Third Parties Section has been skipped.")
     creditsTutorial();
     return;
   }
@@ -352,14 +326,10 @@ function creditsThirdParty() {
     });
 }
 
-
+/* Collect Readme Data --- Credits - Tutorials */
 function creditsTutorial() {
-  /*
-      Collect Readme Data
-      Credits - Tutorials
-  */
-  if (mainData.tutorialConfirm === false) {
-    console.log("Skipped Tutorial")
+    if (mainData.tutorialConfirm === false) {
+    console.log("Credits - Tutorial Section has been skipped.")
     features();
     return;
   }
@@ -393,11 +363,8 @@ function creditsTutorial() {
     });
 }
 
+  /* Collect Readme Data --- Features */
 function features() {
-  /*
-      Collect Readme Data
-      Features
-  */
   inquirer
     .prompt([
       {
@@ -423,13 +390,10 @@ function features() {
     });
 }
 
+  /* Collect Readme Data --- Test Cases */
 function testCases() {
-  /*
-      Collect Readme Data
-      Tests 
-  */
   if (mainData.testCasesConfirm === false) {
-    console.log("Skipped Test Cases")
+    console.log("Test Cases Section has been skipped.")
     licenseSection();
     return;
   }
@@ -457,13 +421,10 @@ function testCases() {
     });
 }
 
+  /* Collect Readme Data --- License */
 function licenseSection() {
-  /*
-      Collect Readme Data
-      license 
-  */
   if (mainData.licenseConfirm === false) {
-    console.log("Skipped License")
+    console.log("License Section has been skipped.")
     howToContribute();
     return;
   }
@@ -484,27 +445,24 @@ function licenseSection() {
     );
 }
 
+  /* Collect Readme Data --- How to Contribute */
 function howToContribute() {
-  /*
-      Collect Readme Data
-      How to Contribute 
-  */
   if (mainData.installationConfirm === false) {
-    console.log("Skipped Install")
+    console.log("How to Contribute Section has been skipped.")
     // userDetailsGatheringPart5();
-    console.log(mainData);
-    console.log(descMotivationArray);
-    console.log(descLearnArray);
-    console.log(installArray);
-    console.log(usageGeneralArray);
-    console.log(usageScreenshotArray);
-    console.log(creditsCollaboratorsArray);
-    console.log(creditsThridPartyArray);
-    console.log(creditsTutorialArray);
-    console.log(featuresArray);
-    console.log(testArray);
-    console.log(licenseArray);
-    console.log(contributeArray);
+    // console.log(mainData);
+    // console.log(descMotivationArray);
+    // console.log(descLearnArray);
+    // console.log(installArray);
+    // console.log(usageGeneralArray);
+    // console.log(usageScreenshotArray);
+    // console.log(creditsCollaboratorsArray);
+    // console.log(creditsThridPartyArray);
+    // console.log(creditsTutorialArray);
+    // console.log(featuresArray);
+    // console.log(testArray);
+    // console.log(licenseArray);
+    // console.log(contributeArray);
     writeToFile();
     return;
   }
@@ -522,38 +480,28 @@ function howToContribute() {
       },
     ])
     .then((response) => {
-      // collectedData13 = response;
       if (response.repeat === true) {
         contributeArray.push(response.contribute);
         howToContribute();
         return;
       }
       contributeArray.push(response.contribute);
-      console.log(mainData);
-      console.log(descMotivationArray);
-      console.log(descLearnArray);
-      console.log(installArray);
-      console.log(usageGeneralArray);
-      console.log(usageScreenshotArray);
-      console.log(creditsCollaboratorsArray);
-      console.log(creditsThridPartyArray);
-      console.log(creditsTutorialArray);
-      console.log(featuresArray);
-      console.log(testArray);
-      console.log(licenseArray);
-      console.log(contributeArray);
+      // console.log(mainData);
+      // console.log(descMotivationArray);
+      // console.log(descLearnArray);
+      // console.log(installArray);
+      // console.log(usageGeneralArray);
+      // console.log(usageScreenshotArray);
+      // console.log(creditsCollaboratorsArray);
+      // console.log(creditsThridPartyArray);
+      // console.log(creditsTutorialArray);
+      // console.log(featuresArray);
+      // console.log(testArray);
+      // console.log(licenseArray);
+      // console.log(contributeArray);
       writeToFile();
     });
 }
 
-// ])
-// .then((response) => {
-//     collectedData = {...response};
-//     console.log(collectedData);
-//     writeToFile();
-// });
-
-// }
-
-// Function call to initialize app
-init();
+// Function called when application is started
+main();

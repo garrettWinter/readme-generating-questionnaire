@@ -1,4 +1,4 @@
-# README Generator
+# Professional README Generator
 
 ## Badges
 
@@ -10,16 +10,15 @@
 Below are short descriptions explaining the what, why, and how of this project.
 
 - What was your motivation?
-    - Save time
-    - Have robust readme files
+    - I wanted to develop this application to save time on future projects README files.
+    - I wanted the README files to be more robust.
 
 - What problem does this application solve?
-    - Helps developers to create readme files so they can focus on development.
+    - This streamlines the process of creating a README file.
 
 - What did you learn while working on this?
-    - How to use inquirer
-    - How to feed in parameters into functions more effectivly.
-    - How to send data into another 'file'
+    - Learned how to use inquirer prompts for inputs, list and confirms.
+    - How to pass data from one function into another, even if it lives on another JavaScript File.
   
 ## Table of Contents
 
@@ -37,53 +36,56 @@ Below are short descriptions explaining the what, why, and how of this project.
 ## Installation
   
 Here is some information that you will need to be able to install and properly work this application:
-  
-    - Need to have node 16 installed
-    - Need to have a CLI installed
-  
+    - You need to have VS Code installed on your computer.
+    - You need to have Node version 16.x installed on your computer.
+
 ## Usage
   
 Here are some details on how this application can be used:
-    - Run this application from a CLI by typing node index.js
+    - You can run this application via your CLI in VS Code by being in the correct folder and running the command 'node index.js'.
+    - Once running, follow the prompt to have it generate your professional grade README file.
       
 Below a screenshot(s) of the application:
-  - ![ALT1](URL)
-  - ![ALT2](URL)
-  
+  - ![NEED]()
+  - ![NEED2]()
+
 ## Credits
 
-The following poeople have worked together to develop this application:
-    - Sal (URL)
+The following people have worked together to develop this application:
+    - Myself (URL)
 
 This application used the following Third-Party technologies:
-    - Giphy Images (URL)
+    - No tutorial followed but wanted to show functionality. (NONE)
 
 The following tutorial was followed in the development of this application:
-    - Didnt Use one (URL)
+    - No tutorial followed, showcasing functionality. (NONE)
   
 ## License
 
-The MIT license is being used for this applcation. For more information you can go to the following URL.
+The MIT license is being used for this application. For more information you can go to the following URL.
     - https://opensource.org/licenses/MIT
 
 ## Features
 
 Some of the main features of this application are:
-    - THis has dyanmic ToC
-    - Can select what sections you would like
+    - Auto-generation of README file based on user inputs.
+    - Dynamically generated table of contents based on user selections.
+    - Questions are skipped for sections that the user has advised they do not want to include in the README.
 
 ## How to Contribute
   
 Here are some details on how to contribute to this application:
-    - Look at github Issues?
+    - If you would like to help contribute to the development of this application, please reach out to me via email @ Garrett_Winter@hotmail.com.
 
 ## Tests
   
-Test have been written for this application to aid in the develpment process. Below is some details on how to use these test cases:
-    - Dont really have any just wanted this section.
-    - Reall dont have any
+Test have been written for this application to aid in the development process. Below is some details on how to use these test cases:
+    - No tests have been created for this application. Showing this section to showcase functionality.
 
 ## Questions
 
+Below is a link to my gitHub profile:
+  - garrettWinter
+
 If you have questions and would like to discuss you can reach out to:
-  -garrettWinter garrett_Winter@hotmail.com
+  - Garrett_Winter@hotmail.com
