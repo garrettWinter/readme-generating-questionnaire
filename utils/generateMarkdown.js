@@ -101,7 +101,7 @@ function installationBuilder(mainData, installArray) {
   };
 
   for (let i = 0; i < installArray.length; i++) {
-    installationBullets = installationBullets.concat("\n    - " + installArray[i]);
+    installationBullets = installationBullets.concat("\n  - " + installArray[i]);
   };
 
 
@@ -114,7 +114,7 @@ Here is some information that you will need to be able to install and properly w
 /* Function to build useage content */
 function usageBuilder(usageGeneralArray, usageScreenshotArray) {
   for (let i = 0; i < usageGeneralArray.length; i++) {
-    usageGeneralBullets = usageGeneralBullets.concat("\n    - " + usageGeneralArray[i]);
+    usageGeneralBullets = usageGeneralBullets.concat("\n  - " + usageGeneralArray[i]);
   };
   for (let i = 0; i < usageScreenshotArray.length; i++) {
     usageScreenshotBullets = usageScreenshotBullets.concat("\n  - ![" + usageScreenshotArray[i][0] + "](" + usageScreenshotArray[i][1] + ")");
@@ -135,17 +135,17 @@ function creditsBuilder(mainData, creditsCollaboratorsArray, creditsThridPartyAr
   };
   if (mainData.collaboratorConfirm === true) {
     for (let i = 0; i < creditsCollaboratorsArray.length; i++) {
-      creditsCollaboratorsBullets = creditsCollaboratorsBullets.concat("\n    - " + creditsCollaboratorsArray[i][0] + " (" + creditsCollaboratorsArray[i][1] + ")");
+      creditsCollaboratorsBullets = creditsCollaboratorsBullets.concat("\n  - " + creditsCollaboratorsArray[i][0] + " (" + creditsCollaboratorsArray[i][1] + ")");
     };
   };
   if (mainData.attributionConfirm === true) {
     for (let i = 0; i < creditsThridPartyArray.length; i++) {
-      creditsThridPartyBullets = creditsThridPartyBullets.concat("\n    - " + creditsThridPartyArray[i][0] + " (" + creditsThridPartyArray[i][1] + ")");
+      creditsThridPartyBullets = creditsThridPartyBullets.concat("\n  - " + creditsThridPartyArray[i][0] + " (" + creditsThridPartyArray[i][1] + ")");
     };
   };
   if (mainData.tutorialConfirm === true) {
     for (let i = 0; i < creditsTutorialArray.length; i++) {
-      creditsTutorialBullets = creditsTutorialBullets.concat("\n    - " + creditsTutorialArray[i][0] + " (" + creditsTutorialArray[i][1] + ")");
+      creditsTutorialBullets = creditsTutorialBullets.concat("\n  - " + creditsTutorialArray[i][0] + " (" + creditsTutorialArray[i][1] + ")");
     };
   };
 
@@ -165,22 +165,22 @@ function licenseBuilder(mainData, licenseArray) {
   };
 
   if (licenseArray === 'MIT') {
-    licenseText = '\n## License\n\nThe MIT license is being used for this application. For more information you can go to the following URL.\n    - https://opensource.org/licenses/MIT';
+    licenseText = '\n## License\n\nThe MIT license is being used for this application. For more information you can go to the following URL.\n  - https://opensource.org/licenses/MIT';
   };
 
   if (licenseArray === 'Mozilla Public License 2.0') {
-    licenseText = '\n## License\n\nThe Mozilla Public License 2.0 license is being used for this application. For more information you can go to the following URL.\n    - https://opensource.org/licenses/MPL-2.0';
+    licenseText = '\n## License\n\nThe Mozilla Public License 2.0 license is being used for this application. For more information you can go to the following URL.\n  - https://opensource.org/licenses/MPL-2.0';
   };
 
   if (licenseArray === 'GNU General Public License v3.0') {
-    licenseText = '\n## License\n\nThe GNU General Public License v3.0 license is being used for this application. For more information you can go to the following URL.\n    - https://www.gnu.org/licenses/gpl-3.0';
+    licenseText = '\n## License\n\nThe GNU General Public License v3.0 license is being used for this application. For more information you can go to the following URL.\n  - https://www.gnu.org/licenses/gpl-3.0';
   };
 };
 
 /* Function to build feature content */
 function featureBuilder(featuresArray) {
   for (let i = 0; i < featuresArray.length; i++) {
-    featureBullets = featureBullets.concat("\n    - " + featuresArray[i]);
+    featureBullets = featureBullets.concat("\n  - " + featuresArray[i]);
   };
 };
 
@@ -191,7 +191,7 @@ function contributeBuilder(mainData, contributeArray) {
   };
 
   for (let i = 0; i < contributeArray.length; i++) {
-    contributeBullets = contributeBullets.concat("\n    - " + contributeArray[i]);
+    contributeBullets = contributeBullets.concat("\n  - " + contributeArray[i]);
   };
 
   contributeContent = `\n\n## How to Contribute
@@ -206,7 +206,7 @@ function testBuilder(mainData, testArray) {
   };
 
   for (let i = 0; i < testArray.length; i++) {
-    testBullets = testBullets.concat("\n    - " + testArray[i]);
+    testBullets = testBullets.concat("\n  - " + testArray[i]);
   };
 
   testContent = `\n\n## Tests

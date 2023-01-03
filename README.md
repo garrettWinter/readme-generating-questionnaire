@@ -36,53 +36,52 @@ Below are short descriptions explaining the what, why, and how of this project.
 ## Installation
   
 Here is some information that you will need to be able to install and properly work this application:
-    - You need to have VS Code installed on your computer.
-    - You need to have Node version 16.x installed on your computer.
+  - You need to have VS Code installed on your computer.
+  - You need to have Node version 16.x installed on your computer.
 
 ## Usage
   
 Here are some details on how this application can be used:
-    - You can run this application via your CLI in VS Code by being in the correct folder and running the command 'node index.js'.
-    - Once running, follow the prompt to have it generate your professional grade README file.
-    - Video Demo of Application - https://garrettwinter.github.io/readme-generating-questionnaire/assets/media/README-Questionnair-Video.webm
+  - You can run this application via your CLI in VS Code by being in the correct folder and running the command 'node index.js'.
+  - Once running, follow the prompt to have it generate your professional grade README file.
+  - Video Demo of Application - https://garrettwinter.github.io/readme-generating-questionnaire/assets/media/README-Questionnair-Video.webm
       
 Below a screenshot(s) of the application:
   - ![Screenshot of Completed Questionnair in NODE](./assets/media/images/NODE-Completed-Questionnair.png)
   - ![Screenshot of the README.md file](./assets/media/images/README-Sample.png)
-  
 
 ## Credits
 
 The following people have worked together to develop this application:
-    - Garrett Winter (https://github.com/garrettWinter)
+  - Garrett Winter (https://github.com/garrettWinter)
 
 This application used the following Third-Party technologies:
-    - No third parties followed but wanted to show functionality. (None Used)
+  - No third parties followed but wanted to show functionality. (None Used)
 
 The following tutorial was followed in the development of this application:
-    - No tutorial followed, showcasing functionality. (None Followed)
+  - No tutorial followed, showcasing functionality. (None Followed)
   
 ## License
 
 The MIT license is being used for this application. For more information you can go to the following URL.
-    - https://opensource.org/licenses/MIT
+  - https://opensource.org/licenses/MIT
 
 ## Features
 
 Some of the main features of this application are:
-    - Auto-generation of README file based on user inputs.
-    - Dynamically generated table of contents based on user selections.
-    - Questions are skipped for sections that the user has advised they do not want to include in the README.
+  - Auto-generation of README file based on user inputs.
+  - Dynamically generated table of contents based on user selections.
+  - Questions are skipped for sections that the user has advised they do not want to include in the README.
 
 ## How to Contribute
   
 Here are some details on how to contribute to this application:
-    - If you would like to help contribute to the development of this application, please reach out to me via email @ Garrett_Winter@hotmail.com.
+  - If you would like to help contribute to the development of this application, please reach out to me via email @ Garrett_Winter@hotmail.com.
 
 ## Tests
   
 Test have been written for this application to aid in the development process. Below is some details on how to use these test cases:
-    - No tests have been created for this application. Showing this section to showcase functionality.
+  - No tests have been created for this application. Showing this section to showcase functionality.
 
 ## Questions
 
