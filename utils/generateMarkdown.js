@@ -246,7 +246,7 @@ ${tocContent}${installationContent}${useageContent}${creditsContent}${licenseTex
 
 ## Questions
 
-Below is a link to my gitHub profile:
+Below is my gitHub user name:
   - ${mainData.gitHub}
 
 If you have questions and would like to discuss you can reach out to:

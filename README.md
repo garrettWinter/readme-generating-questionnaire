@@ -48,6 +48,7 @@ Here are some details on how this application can be used:
 Below a screenshot(s) of the application:
   - ![Screenshot of Completed Questionnair in NODE](./assets/media/images/NODE-Completed-Questionnair.png)
   - ![Screenshot of the README.md file](./assets/media/images/README-Sample.png)
+  - ![Video Demo of Application](./assets/media/README-Questionnair-Video.webm)
 
 ## Credits
 
@@ -84,7 +85,7 @@ Test have been written for this application to aid in the development process. B
 
 ## Questions
 
-Below is a link to my gitHub profile:
+Below is my gitHub user name:
   - garrettWinter
 
 If you have questions and would like to discuss you can reach out to:
