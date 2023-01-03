@@ -48,7 +48,7 @@ Here are some details on how this application can be used:
 Below a screenshot(s) of the application:
   - ![Screenshot of Completed Questionnair in NODE](./assets/media/images/NODE-Completed-Questionnair.png)
   - ![Screenshot of the README.md file](./assets/media/images/README-Sample.png)
-  - ![Video Demo of Application](./assets/media/README-Questionnair-Video.webm)
+  - ![Video Demo of Application](https://garrettwinter.github.io/readme-generating-questionnaire/assets/media/README-Questionnair-Video.webm)
 
 ## Credits
 
