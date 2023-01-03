@@ -44,11 +44,12 @@ Here is some information that you will need to be able to install and properly w
 Here are some details on how this application can be used:
     - You can run this application via your CLI in VS Code by being in the correct folder and running the command 'node index.js'.
     - Once running, follow the prompt to have it generate your professional grade README file.
+    - Video Demo of Application - https://garrettwinter.github.io/readme-generating-questionnaire/assets/media/README-Questionnair-Video.webm
       
 Below a screenshot(s) of the application:
   - ![Screenshot of Completed Questionnair in NODE](./assets/media/images/NODE-Completed-Questionnair.png)
   - ![Screenshot of the README.md file](./assets/media/images/README-Sample.png)
-  - ![Video Demo of Application](https://garrettwinter.github.io/readme-generating-questionnaire/assets/media/README-Questionnair-Video.webm)
+  
 
 ## Credits
 
